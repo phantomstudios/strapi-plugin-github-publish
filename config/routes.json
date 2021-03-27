@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/check",
+      "handler": "github-publish.check",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/publish",
+      "handler": "github-publish.publish",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
