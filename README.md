@@ -4,6 +4,8 @@ This is a plugin for [Strapi](https://github.com/strapi/strapi) headless CMS. It
 
 ## Introduction
 
+![Screenshot](./docs/screenshot.png "Plugin Screenshot")
+
 When using Strapi as a headless CMS for a statically build website you need a way to trigger the site to rebuild when content has been changed. The typical approach is to setup a Strapi managed webhook to trigger a CI/CD pipeline whenever content changes. This approach has its issues. For example when making many changes to content, builds are triggered multiple times and deployments can fail due to the site being deployed concurrently.
 
 This plugin tackles the publishing flow a different way. The site administrators can take their time and make many changes and once the content update is complete they can trigger a single build.
