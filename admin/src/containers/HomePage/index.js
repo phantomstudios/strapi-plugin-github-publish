@@ -5,8 +5,7 @@ import { Header } from "@buffetjs/custom";
 import { LoadingBar } from "@buffetjs/styles";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-import { useGlobalContext } from "strapi-helper-plugin";
+import { useGlobalContext, request } from "strapi-helper-plugin";
 
 import pluginId from "../../pluginId";
 
@@ -19,9 +18,9 @@ const HomePage = () => {
 
   useEffect(() => {
     const checkBusy = async () => {
-      const { data } = await axios.get(`/${pluginId}/check`);
+      const { busy } = await request(`/${pluginId}/check`, { method: "GET" });
 
-      setBusy(data.busy);
+      setBusy(busy);
       setReady(true);
 
       checkTimeout.current = setTimeout(() => {
@@ -37,12 +36,14 @@ const HomePage = () => {
   }, [checkNumber, setCheckNumber]);
 
   const triggerPublish = async () => {
-    setBusy(data.success);
+    setBusy(true);
     clearTimeout(checkTimeout.current);
 
-    const { data } = await axios.get(`/${pluginId}/publish`);
+    const { success } = await request(`/${pluginId}/publish`, {
+      method: "GET",
+    });
 
-    if (data.success) {
+    if (success) {
       setTimeout(() => {
         setCheckNumber(checkNumber + 1);
       }, 20000);
