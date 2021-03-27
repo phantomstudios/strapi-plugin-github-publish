@@ -1,5 +1,9 @@
 # Strapi plugin github-publish
 
+[![NPM version][npm-image]][npm-url]
+[![Actions Status][ci-image]][ci-url]
+[![PR Welcome][npm-downloads-image]][npm-downloads-url]
+
 This is a plugin for [Strapi](https://github.com/strapi/strapi) headless CMS. It lets you trigger a GitHub Action workflow when the site is ready to be published.
 
 ## Introduction
@@ -53,3 +57,10 @@ GITHUB_TOKEN=XXXXXXX
 ## Use the Plugin
 
 When the plugin has been installed correctly just click on `GitHub Publishing` in the sidebar under plugins then click "Publish".
+
+[npm-image]: https://img.shields.io/npm/v/strapi-plugin-github-publish.svg?style=flat-square&logo=react
+[npm-url]: https://npmjs.org/package/strapi-plugin-github-publish
+[npm-downloads-image]: https://img.shields.io/npm/dm/strapi-plugin-github-publish.svg
+[npm-downloads-url]: https://npmcharts.com/compare/strapi-plugin-github-publish?minimal=true
+[ci-image]: https://github.com/phantomstudios/strapi-plugin-github-publish/workflows/Test/badge.svg
+[ci-url]: https://github.com/phantomstudios/strapi-plugin-github-publish/actions
