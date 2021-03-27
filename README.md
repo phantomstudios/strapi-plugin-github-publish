@@ -9,11 +9,11 @@ It lets you trigger a GitHub Action workflow when the site is ready to be publis
 
 With yarn:
 
-`yarn add @phntms/strapi-plugin-github-publish`
+`yarn add strapi-plugin-github-publish`
 
 With npm:
 
-`npm install @phntms/strapi-plugin-github-publish`
+`npm install strapi-plugin-github-publish`
 
 2. Generate a config file at `config/plugins.js` or `config/development/plugins.js` etc...
 
