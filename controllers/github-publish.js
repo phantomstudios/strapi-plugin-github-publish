@@ -16,9 +16,14 @@ module.exports = {
       Authorization: "token " + token,
     };
 
-    const url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/runs?branch=${branch}&status=in_progress`;
-    const { data } = await axios.get(url, { headers });
-    const busy = !!data.total_count;
+    const url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/runs?branch=${branch}`;
+    const { data: data1 } = await axios.get(`${url}&status=in_progress`, {
+      headers,
+    });
+    const { data: data2 } = await axios.get(`${url}&status=queued`, {
+      headers,
+    });
+    const busy = !!(data1.total_count + data2.total_count);
 
     ctx.send({ busy });
   },

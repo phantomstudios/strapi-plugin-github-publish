@@ -9,10 +9,10 @@ import { useGlobalContext, request } from "strapi-helper-plugin";
 
 import pluginId from "../../pluginId";
 
+const POLL_INTERVAL = 10000;
+
 const HomePage = () => {
   const { formatMessage } = useGlobalContext();
-  const checkTimeout = useRef();
-  const [checkNumber, setCheckNumber] = useState(0);
   const [ready, setReady] = useState(false);
   const [busy, setBusy] = useState(false);
 
@@ -23,31 +23,20 @@ const HomePage = () => {
       setBusy(busy);
       setReady(true);
 
-      checkTimeout.current = setTimeout(() => {
-        setCheckNumber(checkNumber + 1);
-      }, 5000);
+      const timeout = setTimeout(checkBusy, POLL_INTERVAL);
     };
 
     checkBusy();
 
     return () => {
-      clearTimeout(checkTimeout.current);
+      clearTimeout(timeout);
     };
-  }, [checkNumber, setCheckNumber]);
+  }, []);
 
   const triggerPublish = async () => {
     setBusy(true);
-    clearTimeout(checkTimeout.current);
 
-    const { success } = await request(`/${pluginId}/publish`, {
-      method: "GET",
-    });
-
-    if (success) {
-      setTimeout(() => {
-        setCheckNumber(checkNumber + 1);
-      }, 20000);
-    }
+    await request(`/${pluginId}/publish`, { method: "GET" });
   };
 
   const handleClick = () => {

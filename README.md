@@ -14,7 +14,7 @@ When using Strapi as a headless CMS for a statically built website you need a wa
 
 This plugin tackles the publishing flow a different way. The site administrators can take their time and make many changes and once the content update is complete they can trigger a single build.
 
-This plugin also checks to see if an `in_progress` build is active and not allow the user to trigger another. Also, when a build has been triggered the user can wait on the plugin page to see when the build and deployment has completed.
+This plugin also checks to see if an `in_progress` build is active or if anything is in the `queue` and not allow the user to trigger another. Also, when a build has been triggered the user can wait on the plugin page to see when the build and deployment has completed.
 
 ## Installation
 
