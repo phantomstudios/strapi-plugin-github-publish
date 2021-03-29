@@ -17,13 +17,14 @@ const HomePage = () => {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
+    let timeout;
     const checkBusy = async () => {
       const { busy } = await request(`/${pluginId}/check`, { method: "GET" });
 
       setBusy(busy);
       setReady(true);
 
-      const timeout = setTimeout(checkBusy, POLL_INTERVAL);
+      timeout = setTimeout(checkBusy, POLL_INTERVAL);
     };
 
     checkBusy();
