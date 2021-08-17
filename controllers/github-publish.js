@@ -32,16 +32,21 @@ module.exports = {
   },
 
   publish: async (ctx) => {
-    const { owner, repo, workflow_id, token, branch: ref } = strapi.plugins[
-      pluginId
-    ].config;
+    const {
+      owner,
+      repo,
+      workflow_id,
+      token,
+      branch: ref,
+      inputs = {},
+    } = strapi.plugins[pluginId].config;
 
     const headers = {
       Accept: "application/vnd.github.v3+json",
       Authorization: "token " + token,
     };
 
-    const data = { ref };
+    const data = { ref, inputs };
 
     const url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/dispatches`;
     const { status } = await axios.post(url, data, { headers });
