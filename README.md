@@ -45,7 +45,7 @@ module.exports = ({ env }) => ({
     token: env("GITHUB_TOKEN"), // The GitHub personal access token with access to trigger workflows and view build status
     branch: "master", // The branch the workflow should be triggered on
     inputs: {
-      // Inputs to pass through to the GitHub workflow
+      // Optional inputs to pass through to the GitHub workflow
       some_input: "Some value",
       some_other_input: "Some other value",
     },
