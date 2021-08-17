@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-github-publish",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A plugin to easily trigger GitHub Actions workflows from Strapi.",
   "strapi": {
     "name": "GitHub Publishing",
