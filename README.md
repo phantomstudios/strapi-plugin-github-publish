@@ -69,11 +69,13 @@ When the plugin has been installed correctly just click on `GitHub Publishing` i
 ## Older Strapi versions
 
 To use this plugin on a Strapi version prior to v4, install using:
+
 ```bash
 npm install strapi-plugin-github-publish@0.1.0
 ```
 
 Then generate a config file at `config/plugins.js` or `config/development/plugins.js` etc... with:
+
 ```javascript
 module.exports = ({ env }) => ({
   "github-publish": {
