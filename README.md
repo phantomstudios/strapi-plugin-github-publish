@@ -39,15 +39,18 @@ Generate a config file at `config/plugins.js` or `config/development/plugins.js`
 ```javascript
 module.exports = ({ env }) => ({
   "github-publish": {
-    owner: "username", // The gothub organisation or user
-    repo: "reponame", // The name of the repository
-    workflow_id: "rebuild.yml", // The workflow_id or filename
-    token: env("GITHUB_TOKEN"), // The GitHub personal access token with access to trigger workflows and view build status
-    branch: "master", // The branch the workflow should be triggered on
-    inputs: {
-      // Optional inputs to pass through to the GitHub workflow
-      some_input: "Some value",
-      some_other_input: "Some other value",
+    enabled: true,
+    config: {
+      owner: "username", // The GitHub organisation or user
+      repo: "reponame", // The name of the repository
+      workflow_id: "rebuild.yml", // The workflow_id or filename
+      token: env("GITHUB_TOKEN"), // The GitHub personal access token with access to trigger workflows and view build status
+      branch: "master", // The branch the workflow should be triggered on
+      inputs: {
+        // Optional inputs to pass through to the GitHub workflow
+        some_input: "Some value",
+        some_other_input: "Some other value",
+      },
     },
   },
 });
@@ -62,6 +65,31 @@ GITHUB_TOKEN=XXXXXXX
 ## Use the Plugin
 
 When the plugin has been installed correctly just click on `GitHub Publishing` in the sidebar under plugins then click "Publish".
+
+## Older Strapi versions
+
+To use this plugin on a Strapi version prior to v4, install using:
+```bash
+npm install strapi-plugin-github-publish@0.1.0
+```
+
+Then generate a config file at `config/plugins.js` or `config/development/plugins.js` etc... with:
+```javascript
+module.exports = ({ env }) => ({
+  "github-publish": {
+    owner: "username", // The GitHub organisation or user
+    repo: "reponame", // The name of the repository
+    workflow_id: "rebuild.yml", // The workflow_id or filename
+    token: env("GITHUB_TOKEN"), // The GitHub personal access token with access to trigger workflows and view build status
+    branch: "master", // The branch the workflow should be triggered on
+    inputs: {
+      // Optional inputs to pass through to the GitHub workflow
+      some_input: "Some value",
+      some_other_input: "Some other value",
+    },
+  },
+});
+```
 
 [npm-image]: https://img.shields.io/npm/v/strapi-plugin-github-publish.svg?style=flat-square&logo=react
 [npm-url]: https://npmjs.org/package/strapi-plugin-github-publish

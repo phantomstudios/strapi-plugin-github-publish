@@ -1,10 +1,8 @@
-"use strict";
-
 const axios = require("axios");
 
-const pluginId = require("../admin/src/pluginId");
+const pluginId = "github-publish";
 
-module.exports = {
+module.exports = ({ strapi }) => ({
   // Check if workflow is in_progress https://docs.github.com/en/rest/reference/actions#list-workflow-runs
   check: async (ctx) => {
     const { owner, repo, workflow_id, token, branch } = strapi.plugins[
@@ -13,7 +11,7 @@ module.exports = {
 
     const headers = {
       Accept: "application/vnd.github.v3+json",
-      Authorization: "token " + token,
+      Authorization: `token ${token}`,
     };
 
     const url = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/runs?branch=${branch}`;
@@ -43,7 +41,7 @@ module.exports = {
 
     const headers = {
       Accept: "application/vnd.github.v3+json",
-      Authorization: "token " + token,
+      Authorization: `token ${token}`,
     };
 
     const data = { ref, inputs };
@@ -54,4 +52,4 @@ module.exports = {
 
     ctx.send({ success });
   },
-};
+});
