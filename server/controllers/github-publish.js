@@ -1,13 +1,13 @@
 const axios = require("axios");
 
-const pluginId = "github-publish";
+const pluginId = "plugin.github-publish";
 
 module.exports = ({ strapi }) => ({
   // Check if workflow is in_progress https://docs.github.com/en/rest/reference/actions#list-workflow-runs
   check: async (ctx) => {
-    const { owner, repo, workflow_id, token, branch } = strapi.plugins[
+    const { owner, repo, workflow_id, token, branch } = strapi.config.get(
       pluginId
-    ].config;
+    );
 
     const headers = {
       Accept: "application/vnd.github.v3+json",
@@ -37,7 +37,7 @@ module.exports = ({ strapi }) => ({
       token,
       branch: ref,
       inputs = {},
-    } = strapi.plugins[pluginId].config;
+    } = strapi.config.get(pluginId);
 
     const headers = {
       Accept: "application/vnd.github.v3+json",
