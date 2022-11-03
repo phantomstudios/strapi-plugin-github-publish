@@ -1,9 +1,12 @@
 {
-  "home.title": "Publishing",
+  "home.title": "GitHub Publishing",
   "home.description": "Publish changes to GitHub",
   "home.notready": "Checking status...",
-  "home.prompt": "Clicking the below button will trigger the site to rebuild with new content, are you sure?",
-  "home.prompt.confirm": "Are you sure you wish to publish?",
   "home.busy": "The site is currently rebuilding, please wait.",
-  "home.button.publish": "Publish"
+  "home.error.title": "Oops something’s gone wrong,",
+  "home.error.description": "please try again later.",
+  "home.prompt.title": "Are you sure you wish to publish?",
+  "home.prompt.description": "This will publish changes to GitHub and trigger the site to rebuild with new content.",
+  "home.buttons.publish": "Publish",
+  "home.buttons.cancel": "Cancel"
 }
