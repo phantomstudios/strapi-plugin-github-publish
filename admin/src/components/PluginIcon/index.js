@@ -1,7 +1,7 @@
 import React from "react";
 
-import Icon from "@strapi/icons/Github";
+import { Github } from "@strapi/icons";
 
-const PluginIcon = () => <Icon />;
+const PluginIcon = () => <Github />;
 
 export default PluginIcon;

@@ -6,7 +6,8 @@
     "name": "github-publish",
     "icon": "plug",
     "description": "Publish changes via GitHub Actions.",
-    "kind": "plugin"
+    "kind": "plugin",
+    "displayName": "GitHub Publish"
   },
   "dependencies": {},
   "scripts": {
