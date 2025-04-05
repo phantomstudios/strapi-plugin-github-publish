@@ -3,11 +3,15 @@
   "version": "0.2.0",
   "description": "A plugin to easily trigger GitHub Actions workflows from Strapi.",
   "strapi": {
-    "name": "GitHub Publishing",
+    "name": "github-publish",
     "icon": "plug",
-    "description": "Publish changes via GitHub Actions."
+    "description": "Publish changes via GitHub Actions.",
+    "kind": "plugin",
+    "displayName": "GitHub Publish"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
   "scripts": {
     "lint": "NODE_ENV=test npm-run-all --parallel lint:*",
     "lint:js": "eslint \"**/*.{js,jsx}\"",
@@ -30,8 +34,7 @@
     }
   ],
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": ">=6.0.0"
+    "node": "<=20"
   },
   "license": "MIT",
   "devDependencies": {
